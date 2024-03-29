@@ -8,6 +8,9 @@ app.use(express.json());
 
 const filterController = require('./middleware/filter');
 
+app.get('/', (req, res) => {
+  return res.send('Hi there!');
+})
 // HTTP get request for fetching form responses
 app.get('/:formId/filteredResponses', filterController.filterResponse, (req, res) => {
   return res.status(200).json(res.locals.data);
