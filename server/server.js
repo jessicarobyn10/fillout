@@ -1,6 +1,7 @@
 const express = require('express');
+const path = require('path')
 const app = express();
-const PORT = 3333;
+const PORT = 3000;
 require('dotenv').config();
 
 app.use(express.json());
@@ -11,6 +12,7 @@ const filterController = require('./middleware/filter');
 app.get('/:formId/filteredResponses', filterController.filterResponse, (req, res) => {
   return res.status(200).json(res.locals.data);
 });
+
 
 // 404 handler for unknown routes
 app.use('*', (req, res) => {

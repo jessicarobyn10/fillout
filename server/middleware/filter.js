@@ -41,9 +41,8 @@ module.exports = {
         const results = [];
 
         submissions.forEach((submission) => {
-          const questions = submission.questions;
           let passes = true;
-          questions.forEach((question) => {
+          submission.questions.forEach((question) => {
             if (filterObj[question.id]) {
               const filter = filterObj[question.id];
               if (
