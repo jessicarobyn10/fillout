@@ -36,7 +36,7 @@ module.exports = {
       const pageCount = formDataParsed.pageCount;
 
       // filter submission data using requested filters
-      const filter = (submissions, filters) => {
+      const filter = (submissions) => {
         if (!filters.length) return submissions;
         const results = [];
 
@@ -75,7 +75,7 @@ module.exports = {
         return results;
       };
       
-      const filteredData = filter(formDataParsed.responses, filters);
+      const filteredData = filter(formDataParsed.responses);
 
       const response = {
         reponses: filteredData,
