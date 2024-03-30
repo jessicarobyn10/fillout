@@ -37,9 +37,7 @@ module.exports = {
 
       // filter submission data using requested filters
       const filter = (submissions) => {
-        if (!filters.length) return submissions;
         const results = [];
-
         submissions.forEach((submission) => {
           let passes = true;
           submission.questions.forEach((question) => {
@@ -75,7 +73,12 @@ module.exports = {
         return results;
       };
       
-      const filteredData = filter(formDataParsed.responses);
+      let filteredData;
+      if (Object.keys(filterObj).length) {
+        filteredData = filter(formDataParsed.responses);
+      } else {
+        filteredData = formDataParsed.responses;
+      }
 
       const response = {
         reponses: filteredData,
